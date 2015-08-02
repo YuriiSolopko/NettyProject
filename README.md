@@ -15,5 +15,5 @@
 <i>HttpNettyServerHandler</i> - класс обработки запросов на сервер (использует класс сервиса - RequestService)<br>
 <i>HttpNettyServerInitializer</i> - класс для инициализации сервера<br>
 <br>
-Методы класса реализующего интерфейс RequestJDBCManager(работы с Б.Д.) синхронизированы.<br>
+Методы класса реализующего интерфейс RequestJDBCManager(работа с Б.Д.) синхронизированы.<br>
 В проекте используется база данных Oracle 10g<br>
