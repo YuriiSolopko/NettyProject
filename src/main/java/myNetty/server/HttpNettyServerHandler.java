@@ -8,18 +8,22 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.*;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
+import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpRequest;
+import io.netty.handler.codec.http.QueryStringDecoder;
 import io.netty.util.CharsetUtil;
 import myNetty.domain.RedirectRequest;
 import myNetty.domain.Request;
 import myNetty.domain.RequestsByIp;
 import myNetty.service.RequestService;
+import myNetty.service.RequestServiceImpl;
 
 import java.util.concurrent.TimeUnit;
 
 import static io.netty.handler.codec.http.HttpHeaders.Names.*;
 import static io.netty.handler.codec.http.HttpResponseStatus.*;
-import static io.netty.handler.codec.http.HttpVersion.*;
+import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 public class HttpNettyServerHandler extends SimpleChannelInboundHandler<HttpRequest> {
 
@@ -31,7 +35,7 @@ public class HttpNettyServerHandler extends SimpleChannelInboundHandler<HttpRequ
     private RequestService requestService;
 
     public HttpNettyServerHandler() {
-        requestService = new RequestService();
+        requestService = new RequestServiceImpl();
     }
 
     @Override
